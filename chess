@@ -1,5 +1,11 @@
 # chess board co-ordinate
 # chess_board
+import time
+initial = time.time()
+print("L O A D I N G",end = "")
+for i in range(5):
+    print(">",end = "")
+    time.sleep(1)
 print("")
 print("                                                    ", "THIS IS YOUR CHESSBOARD")
 square_name_of_chessboard = []
@@ -817,3 +823,4 @@ while a % 2 == 1:
         else:
             pass
         a = a + 1
+
