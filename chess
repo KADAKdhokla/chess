@@ -13,345 +13,345 @@ print("")
 print("                                                           black side                                                          ")
 print("                               _________________________________________________________________")
 for i in range(7, -1, -1):
-    print("                              |", rev_square_name_of_chessboard[-(8 * i + 1):-(8 * (i+1) + 1):-1],"|")
+    print("                              |", rev_square_name_of_chessboard[-(8 * i + 1):-(8 * (i+1) + 1):-1], "|")
     print("                              |------------------------------------------------------------------|")
 print("                                                           white side                                                          ")
 # whites starting position
-white_pieces_position = {"white_a_pawn": square_name_of_chessboard[8],
-                         "white_b_pawn": square_name_of_chessboard[9],
-                         "white_c_pawn": square_name_of_chessboard[10],
-                         "white_d_pawn": square_name_of_chessboard[11],
-                         "white_e_pawn": square_name_of_chessboard[12],
-                         "white_f_pawn": square_name_of_chessboard[13],
-                         "white_g_pawn": square_name_of_chessboard[14],
-                         "white_h_pawn": square_name_of_chessboard[15],
-                         "white_l_bishop": square_name_of_chessboard[2],
-                         "white_r_bishop": square_name_of_chessboard[5],
-                         "white_l_knight": square_name_of_chessboard[1],
-                         "white_r_knight": square_name_of_chessboard[6],
-                         "white_l_rook": square_name_of_chessboard[0],
-                         "white_r_rook": square_name_of_chessboard[7],
-                         "white_queen": square_name_of_chessboard[3],
-                         "white_king": square_name_of_chessboard[4]
-                         }
+white_piece_setup_dictionary = {"white_a_pawn": square_name_of_chessboard[8],
+                                "white_b_pawn": square_name_of_chessboard[9],
+                                "white_c_pawn": square_name_of_chessboard[10],
+                                "white_d_pawn": square_name_of_chessboard[11],
+                                "white_e_pawn": square_name_of_chessboard[12],
+                                "white_f_pawn": square_name_of_chessboard[13],
+                                "white_g_pawn": square_name_of_chessboard[14],
+                                "white_h_pawn": square_name_of_chessboard[15],
+                                "white_l_bishop": square_name_of_chessboard[2],
+                                "white_r_bishop": square_name_of_chessboard[5],
+                                "white_l_knight": square_name_of_chessboard[1],
+                                "white_r_knight": square_name_of_chessboard[6],
+                                "white_l_rook": square_name_of_chessboard[0],
+                                "white_r_rook": square_name_of_chessboard[7],
+                                "white_queen": square_name_of_chessboard[3],
+                                "white_king": square_name_of_chessboard[4]
+                                }
 # blacks starting position
-black_pieces_position = {"black_a_pawn": square_name_of_chessboard[48],
-                         "black_b_pawn": square_name_of_chessboard[49],
-                         "black_c_pawn": square_name_of_chessboard[50],
-                         "black_d_pawn": square_name_of_chessboard[51],
-                         "black_e_pawn": square_name_of_chessboard[52],
-                         "black_f_pawn": square_name_of_chessboard[53],
-                         "black_g_pawn": square_name_of_chessboard[54],
-                         "black_h_pawn": square_name_of_chessboard[55],
-                         "black_l_bishop": square_name_of_chessboard[58],
-                         "black_r_bishop": square_name_of_chessboard[61],
-                         "black_l_knight": square_name_of_chessboard[57],
-                         "black_r_knight": square_name_of_chessboard[58],
-                         "black_l_rook": square_name_of_chessboard[56],
-                         "black_r_rook": square_name_of_chessboard[63],
-                         "black_queen": square_name_of_chessboard[59],
-                         "black_king": square_name_of_chessboard[60]}
+black_piece_setup_dictionary = {"black_a_pawn": square_name_of_chessboard[48],
+                                "black_b_pawn": square_name_of_chessboard[49],
+                                "black_c_pawn": square_name_of_chessboard[50],
+                                "black_d_pawn": square_name_of_chessboard[51],
+                                "black_e_pawn": square_name_of_chessboard[52],
+                                "black_f_pawn": square_name_of_chessboard[53],
+                                "black_g_pawn": square_name_of_chessboard[54],
+                                "black_h_pawn": square_name_of_chessboard[55],
+                                "black_l_bishop": square_name_of_chessboard[58],
+                                "black_r_bishop": square_name_of_chessboard[61],
+                                "black_l_knight": square_name_of_chessboard[57],
+                                "black_r_knight": square_name_of_chessboard[58],
+                                "black_l_rook": square_name_of_chessboard[56],
+                                "black_r_rook": square_name_of_chessboard[63],
+                                "black_queen": square_name_of_chessboard[59],
+                                "black_king": square_name_of_chessboard[60]}
 # a code which takes your move as input and checks it is possible or not
 # player_move
 a = 1
 while a % 2 == 1:
-    coordinate_of_white_piece_position = list(white_pieces_position.values())
-    coordinate_of_black_piece_position = list(black_pieces_position.values())
+    coordinate_of_white_piece_position = list(white_piece_setup_dictionary.values())
+    coordinate_of_black_piece_position = list(black_piece_setup_dictionary.values())
     which_piece = input("(white to move)enter which piece you want to move:")
     if which_piece == "white_a_pawn":
-        pawn = white_pieces_position["white_a_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_a_pawn"]
+        a_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            a_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            a_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            a_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                a_pawn_possibilities.append(list1)
+        final_a_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in a_pawn_possibilities:
+                final_a_pawn_possibilities.append(i)
     if which_piece == "white_b_pawn":
-        pawn = white_pieces_position["white_b_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_b_pawn"]
+        b_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            b_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            b_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            b_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                b_pawn_possibilities.append(list1)
+        final_b_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in b_pawn_possibilities:
+                final_b_pawn_possibilities.append(i)
     if which_piece == "white_c_pawn":
-        pawn = white_pieces_position["white_c_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_c_pawn"]
+        c_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
+            list1 = [pawn[0], pawn[1] + i]
+            c_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            c_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-            pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                c_pawn_possibilities.append(list1)
+            c_pawn_possibilities.append(list1)
+        final_c_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in c_pawn_possibilities:
+                final_c_pawn_possibilities.append(i)
     if which_piece == "white_d_pawn":
-        pawn = white_pieces_position["white_d_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_d_pawn"]
+        d_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            d_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            d_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            d_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                d_pawn_possibilities.append(list1)
+        final_d_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in d_pawn_possibilities:
+                final_d_pawn_possibilities.append(i)
     if which_piece == "white_e_pawn":
-        pawn = white_pieces_position["white_e_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_e_pawn"]
+        e_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            e_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            e_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            e_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                e_pawn_possibilities.append(list1)
+        final_e_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in e_pawn_possibilities:
+                final_e_pawn_possibilities.append(i)
     if which_piece == "white_f_pawn":
-        pawn = white_pieces_position["white_f_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_f_pawn"]
+        f_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            f_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            f_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            f_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                f_pawn_possibilities.append(list1)
+        final_f_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in f_pawn_possibilities:
+                final_f_pawn_possibilities.append(i)
     if which_piece == "white_g_pawn":
-        pawn = white_pieces_position["white_g_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_g_pawn"]
+        g_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            g_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            g_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            g_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                g_pawn_possibilities.append(list1)
+        final_g_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in g_pawn_possibilities:
+                final_g_pawn_possibilities.append(i)
     if which_piece == "white_h_pawn":
-        pawn = white_pieces_position["white_h_pawn"]
-        pawn_possibilities = []
+        pawn = white_piece_setup_dictionary["white_h_pawn"]
+        h_pawn_possibilities = []
         for i in range(1, 2):
-            l = [pawn[0], pawn[1] + i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] - i]
-            pawn_possibilities.append(l)
-            l = [pawn[0] + 1, pawn[1] + i]
-            pawn_possibilities.append(l)
+            list1 = [pawn[0], pawn[1] + i]
+            h_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] - i]
+            h_pawn_possibilities.append(list1)
+            list1 = [pawn[0] + 1, pawn[1] + i]
+            h_pawn_possibilities.append(list1)
             if a == 1:
-                l = [pawn[0], pawn[1] + 2]
-                pawn_possibilities.append(l)
-        final_pawn_possibilities = []
+                list1 = [pawn[0], pawn[1] + 2]
+                h_pawn_possibilities.append(list1)
+        final_h_pawn_possibilities = []
         for i in square_name_of_chessboard:
-            if i in pawn_possibilities:
-                final_pawn_possibilities.append(i)
+            if i in h_pawn_possibilities:
+                final_h_pawn_possibilities.append(i)
     if which_piece == "white_l_bishop":
-        bishop = white_pieces_position["white_l_bishop"]
-        bishop_possibilities = []
+        bishop = white_piece_setup_dictionary["white_l_bishop"]
+        l_bishop_possibilities = []
         for i in range(1, 8):
-            l = [bishop[0] + i, bishop[1] + i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] - i, bishop[1] - i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] + i, bishop[1] - i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] - i, bishop[1] + i]
-            bishop_possibilities.append(l)
-        final_bishop_possibilities = []
+            list1 = [bishop[0] + i, bishop[1] + i]
+            l_bishop_possibilities.append(list1)
+            list1 = [bishop[0] - i, bishop[1] - i]
+            l_bishop_possibilities.append(list1)
+            list1 = [bishop[0] + i, bishop[1] - i]
+            l_bishop_possibilities.append(list1)
+            list1 = [bishop[0] - i, bishop[1] + i]
+            l_bishop_possibilities.append(list1)
+        final_l_bishop_possibilities = []
         for i in square_name_of_chessboard:
-            if i in bishop_possibilities:
-                final_bishop_possibilities.append(i)
+            if i in l_bishop_possibilities:
+                final_l_bishop_possibilities.append(i)
     if which_piece == "white_r_bishop":
-        bishop = white_pieces_position["white_r_bishop"]
-        bishop_possibilities = []
+        bishop = white_piece_setup_dictionary["white_r_bishop"]
+        r_bishop_possibilities = []
         for i in range(1, 8):
-            l = [bishop[0] + i, bishop[1] + i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] - i, bishop[1] - i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] + i, bishop[1] - i]
-            bishop_possibilities.append(l)
-            l = [bishop[0] - i, bishop[1] + i]
-            bishop_possibilities.append(l)
-        final_bishop_possibilities = []
+            list1 = [bishop[0] + i, bishop[1] + i]
+            r_bishop_possibilities.append(list1)
+            list1 = [bishop[0] - i, bishop[1] - i]
+            r_bishop_possibilities.append(list1)
+            list1 = [bishop[0] + i, bishop[1] - i]
+            r_bishop_possibilities.append(list1)
+            list1 = [bishop[0] - i, bishop[1] + i]
+            r_bishop_possibilities.append(list1)
+        final_r_bishop_possibilities = []
         for i in square_name_of_chessboard:
-            if i in bishop_possibilities:
-                final_bishop_possibilities.append(i)
+            if i in r_bishop_possibilities:
+                final_r_bishop_possibilities.append(i)
     if which_piece == "white_l_knight":
-        knight = white_pieces_position["white_l_knight"]
-        knight_possibilities = []
+        knight = white_piece_setup_dictionary["white_l_knight"]
+        l_knight_possibilities = []
         for i in range(1, 2):
-            l = [knight[0] + 2, knight[1] + i]
-            knight_possibilities.append(l)
-            l = [knight[0] - 2, knight[1] - i]
-            knight_possibilities.append(l)
-            l = [knight[0] + i, knight[1] + 2]
-            knight_possibilities.append(l)
-            l = [knight[0] - i, knight[1] - 2]
-            knight_possibilities.append(l)
-            l = [knight[0] + 2, knight[1] - i]
-            knight_possibilities.append(l)
-            l = [knight[0] - 2, knight[1] + i]
-            knight_possibilities.append(l)
-            l = [knight[0] - i, knight[1] + 2]
-            knight_possibilities.append(l)
-            l = [knight[0] + i, knight[1] - 2]
-            knight_possibilities.append(l)
-        final_knight_possibilities = []
+            list1 = [knight[0] + 2, knight[1] + i]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] - 2, knight[1] - i]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] + i, knight[1] + 2]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] - i, knight[1] - 2]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] + 2, knight[1] - i]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] - 2, knight[1] + i]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] - i, knight[1] + 2]
+            l_knight_possibilities.append(list1)
+            list1 = [knight[0] + i, knight[1] - 2]
+            l_knight_possibilities.append(list1)
+        final_l_knight_possibilities = []
         for i in square_name_of_chessboard:
-            if i in knight_possibilities:
-                final_knight_possibilities.append(i)
+            if i in l_knight_possibilities:
+                final_l_knight_possibilities.append(i)
     if which_piece == "white_r_knight":
-        knight = white_pieces_position["white_r_knight"]
-        knight_possibilities = []
+        knight = white_piece_setup_dictionary["white_r_knight"]
+        r_knight_possibilities = []
         for i in range(1, 2):
-            l = [knight[0] + 2, knight[1] + i]
-            knight_possibilities.append(l)
-            l = [knight[0] - 2, knight[1] - i]
-            knight_possibilities.append(l)
-            l = [knight[0] + i, knight[1] + 2]
-            knight_possibilities.append(l)
-            l = [knight[0] - i, knight[1] - 2]
-            knight_possibilities.append(l)
-            l = [knight[0] + 2, knight[1] - i]
-            knight_possibilities.append(l)
-            l = [knight[0] - 2, knight[1] + i]
-            knight_possibilities.append(l)
-            l = [knight[0] - i, knight[1] + 2]
-            knight_possibilities.append(l)
-            l = [knight[0] + i, knight[1] - 2]
-            knight_possibilities.append(l)
-        final_knight_possibilities = []
+            list1 = [knight[0] + 2, knight[1] + i]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] - 2, knight[1] - i]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] + i, knight[1] + 2]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] - i, knight[1] - 2]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] + 2, knight[1] - i]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] - 2, knight[1] + i]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] - i, knight[1] + 2]
+            r_knight_possibilities.append(list1)
+            list1 = [knight[0] + i, knight[1] - 2]
+            r_knight_possibilities.append(list1)
+        final_r_knight_possibilities = []
         for i in square_name_of_chessboard:
-            if i in knight_possibilities:
-                final_knight_possibilities.append(i)
+            if i in r_knight_possibilities:
+                final_r_knight_possibilities.append(i)
     if which_piece == "white_l_rook":
-        rook = white_pieces_position["white_l_rook"]
-        rook_possibilities = []
+        rook = white_piece_setup_dictionary["white_l_rook"]
+        l_rook_possibilities = []
         output = ""
         for i in range(1, 8):
-            l = [rook[0], rook[1] + i]
-            rook_possibilities.append(l)
-            l = [rook[0] + i, rook[1]]
-            rook_possibilities.append(l)
-            l = [rook[0], rook[1] - i]
-            rook_possibilities.append(l)
-            l = [rook[0] - i, rook[1]]
-            rook_possibilities.append(l)
-        final_rook_possibilities = []
+            list1 = [rook[0], rook[1] + i]
+            l_rook_possibilities.append(list1)
+            list1 = [rook[0] + i, rook[1]]
+            l_rook_possibilities.append(list1)
+            list1 = [rook[0], rook[1] - i]
+            l_rook_possibilities.append(list1)
+            list1 = [rook[0] - i, rook[1]]
+            l_rook_possibilities.append(list1)
+        final_l_rook_possibilities = []
         for i in square_name_of_chessboard:
-            if i in rook_possibilities:
-                final_rook_possibilities.append(i)
+            if i in l_rook_possibilities:
+                final_l_rook_possibilities.append(i)
     if which_piece == "white_r_rook":
-        rook = white_pieces_position["white_r_rook"]
-        rook_possibilities = []
+        rook = white_piece_setup_dictionary["white_r_rook"]
+        r_rook_possibilities = []
         for i in range(1, 8):
-            l = [rook[0], rook[1] + i]
-            rook_possibilities.append(l)
-            l = [rook[0] + i, rook[1]]
-            rook_possibilities.append(l)
-            l = [rook[0], rook[1] - i]
-            rook_possibilities.append(l)
-            l = [rook[0] - i, rook[1]]
-            rook_possibilities.append(l)
-        final_rook_possibilities = []
+            list1 = [rook[0], rook[1] + i]
+            r_rook_possibilities.append(list1)
+            list1 = [rook[0] + i, rook[1]]
+            r_rook_possibilities.append(list1)
+            list1 = [rook[0], rook[1] - i]
+            r_rook_possibilities.append(list1)
+            list1 = [rook[0] - i, rook[1]]
+            r_rook_possibilities.append(list1)
+        final_r_rook_possibilities = []
         for i in square_name_of_chessboard:
-            if i in rook_possibilities:
-                final_rook_possibilities.append(i)
+            if i in r_rook_possibilities:
+                final_r_rook_possibilities.append(i)
     if which_piece == "white_queen":
-        queen = white_pieces_position["white_queen"]
+        queen = white_piece_setup_dictionary["white_queen"]
         queen_possibilities = []
         for i in range(1, 8):
-            l = [queen[0], queen[1] + i]
-            queen_possibilities.append(l)
-            l = [queen[0] + i, queen[1]]
-            queen_possibilities.append(l)
-            l = [queen[0], queen[1] - i]
-            queen_possibilities.append(l)
-            l = [queen[0] - i, queen[1]]
-            queen_possibilities.append(l)
-            l = [queen[0] + i, queen[1] + i]
-            queen_possibilities.append(l)
-            l = [queen[0] - i, queen[1] - i]
-            queen_possibilities.append(l)
-            l = [queen[0] + i, queen[1] - i]
-            queen_possibilities.append(l)
-            l = [queen[0] - i, queen[1] + i]
-            queen_possibilities.append(l)
+            list1 = [queen[0], queen[1] + i]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] + i, queen[1]]
+            queen_possibilities.append(list1)
+            list1 = [queen[0], queen[1] - i]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] - i, queen[1]]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] + i, queen[1] + i]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] - i, queen[1] - i]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] + i, queen[1] - i]
+            queen_possibilities.append(list1)
+            list1 = [queen[0] - i, queen[1] + i]
+            queen_possibilities.append(list1)
         final_queen_possibilities = []
         for i in square_name_of_chessboard:
             if i in queen_possibilities:
                 final_queen_possibilities.append(i)
     if which_piece == "white_king":
-        king = white_pieces_position["white_king"]
+        king = white_piece_setup_dictionary["white_king"]
         king_possibilities = []
         for i in range(1, 2):
-            l = [king[0], king[1] + i]
-            king_possibilities.append(l)
-            l = [king[0] + i, king[1]]
-            king_possibilities.append(l)
-            l = [king[0], king[1] - i]
-            king_possibilities.append(l)
-            l = [king[0] - i, king[1]]
-            king_possibilities.append(l)
-            l = [king[0] + i, king[1] + i]
-            king_possibilities.append(l)
-            l = [king[0] - i, king[1] - i]
-            king_possibilities.append(l)
-            l = [king[0] + i, king[1] - i]
-            king_possibilities.append(l)
-            l = [king[0] - i, king[1] + i]
-            king_possibilities.append(l)
-    print("from", white_pieces_position[which_piece], "to:")
+            list1 = [king[0], king[1] + i]
+            king_possibilities.append(list1)
+            list1 = [king[0] + i, king[1]]
+            king_possibilities.append(list1)
+            list1 = [king[0], king[1] - i]
+            king_possibilities.append(list1)
+            list1 = [king[0] - i, king[1]]
+            king_possibilities.append(list1)
+            list1 = [king[0] + i, king[1] + i]
+            king_possibilities.append(list1)
+            list1 = [king[0] - i, king[1] - i]
+            king_possibilities.append(list1)
+            list1 = [king[0] + i, king[1] - i]
+            king_possibilities.append(list1)
+            list1 = [king[0] - i, king[1] + i]
+            king_possibilities.append(list1)
+    print("from", white_piece_setup_dictionary[which_piece], "to:")
     move = []
     for i in range(2):
         if i == 0:
@@ -360,49 +360,49 @@ while a % 2 == 1:
         if i == 1:
             which_move = int(input("where do you want to move your " + which_piece + " (enter the rank):"))
             move.append(which_move)
-    white_pieces_position[which_piece] = move
+    white_piece_setup_dictionary[which_piece] = move
     possibility = "not possible"
     if which_piece == "white_a_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_a_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_b_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_b_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_c_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_c_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_d_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_d_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_e_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_e_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_f_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_f_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_g_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_g_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_h_pawn":
-        if move in final_pawn_possibilities:
+        if move in final_h_pawn_possibilities:
             possibility = "possible"
     if which_piece == "white_l_bishop":
-        if move in final_bishop_possibilities:
+        if move in final_l_bishop_possibilities:
             possibility = "possible"
     if which_piece == "white_r_bishop":
-        if move in final_bishop_possibilities:
+        if move in final_r_bishop_possibilities:
             possibility = "possible"
     if which_piece == "white_l_knight":
-        if move in final_knight_possibilities:
+        if move in final_l_knight_possibilities:
             possibility = "possible"
     if which_piece == "white_r_knight":
-        if move in final_knight_possibilities:
+        if move in final_r_knight_possibilities:
             possibility = "possible"
     if which_piece == "white_l_rook":
-        if move in final_rook_possibilities:
+        if move in final_l_rook_possibilities:
             possibility = "possible"
     if which_piece == "white_r_rook":
-        if move in final_rook_possibilities:
+        if move in final_r_rook_possibilities:
             possibility = "possible"
     if which_piece == "white_queen":
         if move in final_queen_possibilities:
@@ -411,28 +411,25 @@ while a % 2 == 1:
         if move in king_possibilities:
             possibility = "possible"
     conclusion = " "
-    for i in range(len(coordinate_of_white_piece_position)):
-        for j in range(1):
-            if coordinate_of_white_piece_position[i][j] == coordinate_of_black_piece_position[i][j]:
-                if coordinate_of_white_piece_position[i][j + 1] == coordinate_of_black_piece_position[i][j + 1]:
-                    conclusion = "position is not possible"
+    for i in black_piece_setup_dictionary:
+        for j in white_piece_setup_dictionary:
+            if black_piece_setup_dictionary[i] == white_piece_setup_dictionary[j]:
+                conclusion = "position is not possible"
             if conclusion == "position is not possible":
                 break
             else:
                 conclusion = "position is possible"
     if possibility == "possible":
         if conclusion == "position is possible":
-            print("move registered")
+            print("moved;", which_piece, "to", move)
         if conclusion == "position is not possible":
             print("capture made;", which_piece, "to", move)
     if possibility == "not possible":
         print("illegal position")
-    to_be_deleted = []
-    for piece in black_pieces_position:
-        if black_pieces_position[piece] == move:
-            to_be_deleted.append(piece)
-            black_pieces_position.pop(to_be_deleted[0])
-    if not "black_king" in black_pieces_position:
+    for piece in black_piece_setup_dictionary.copy():
+        if black_piece_setup_dictionary[piece] == move:
+            del black_piece_setup_dictionary[piece]
+    if not "black_king" in black_piece_setup_dictionary:
         print("checkmate, white wins")
     else:
         pass
@@ -440,298 +437,302 @@ while a % 2 == 1:
     while a % 2 == 0:
         which_piece = input("(black to move)enter which piece you want to move:")
         if which_piece == "black_a_pawn":
-            pawn = black_pieces_position["black_a_pawn"]
+            pawn = black_piece_setup_dictionary["black_a_pawn"]
             black_a_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_a_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_a_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_a_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_a_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_a_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_a_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_a_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_a_pawn_possibilities.append(list1)
                 final_black_a_pawn_possibilities = []
             for i in square_name_of_chessboard:
                 if i in black_a_pawn_possibilities:
                     final_black_a_pawn_possibilities.append(i)
         if which_piece == "black_b_pawn":
-            pawn = black_pieces_position["black_b_pawn"]
+            pawn = black_piece_setup_dictionary["black_b_pawn"]
             black_b_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_b_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_b_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_b_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_b_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_b_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_b_pawn_possibilities.append(list1)
                 if a == 0:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_b_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_b_pawn_possibilities.append(list1)
             final_black_b_pawn_possibilities = []
             for i in square_name_of_chessboard:
                 if i in black_b_pawn_possibilities:
                     final_black_b_pawn_possibilities.append(i)
         if which_piece == "black_c_pawn":
-            pawn = black_pieces_position["black_c_pawn"]
+            pawn = black_piece_setup_dictionary["black_c_pawn"]
             black_c_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_c_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_c_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_c_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_c_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_c_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_c_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_c_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_c_pawn_possibilities.append(list1)
             final_black_c_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
+                if i in black_c_pawn_possibilities:
                     final_black_c_pawn_possibilities.append(i)
         if which_piece == "black_d_pawn":
-            pawn = black_pieces_position["black_d_pawn"]
+            pawn = black_piece_setup_dictionary["black_d_pawn"]
             black_d_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_d_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_d_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_d_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_d_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_d_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_d_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_d_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_d_pawn_possibilities.append(list1)
             final_black_d_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
+                if i in black_d_pawn_possibilities:
                     final_black_d_pawn_possibilities.append(i)
         if which_piece == "black_e_pawn":
-            pawn = black_pieces_position["black_e_pawn"]
+            pawn = black_piece_setup_dictionary["black_e_pawn"]
             black_e_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_e_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_e_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_e_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_e_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_e_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_e_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_e_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_e_pawn_possibilities.append(list1)
             final_black_e_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
+                if i in black_e_pawn_possibilities:
                     final_black_e_pawn_possibilities.append(i)
         if which_piece == "black_f_pawn":
-            pawn = black_pieces_position["black_f_pawn"]
+            pawn = black_piece_setup_dictionary["black_f_pawn"]
             black_f_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_f_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_f_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_f_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_f_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_f_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_f_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_f_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_f_pawn_possibilities.append(list1)
             final_black_f_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
+                if i in black_f_pawn_possibilities:
                     final_black_f_pawn_possibilities.append(i)
         if which_piece == "black_g_pawn":
-            pawn = black_pieces_position["black_g_pawn"]
+            pawn = black_piece_setup_dictionary["black_g_pawn"]
             black_g_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_g_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_g_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_g_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_g_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_g_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_g_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_g_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_g_pawn_possibilities.append(list1)
             final_black_g_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
-                    final_pawn_possibilities.append(i)
+                if i in black_g_pawn_possibilities:
+                    final_g_pawn_possibilities.append(i)
         if which_piece == "black_h_pawn":
-            pawn = black_pieces_position["black_h_pawn"]
+            pawn = black_piece_setup_dictionary["black_h_pawn"]
             black_h_pawn_possibilities = []
             for i in range(1, 2):
-                l = [pawn[0], pawn[1] - i]
-                black_h_pawn_possibilities.append(l)
-                l = [pawn[0] + 1, pawn[1] - i]
-                black_h_pawn_possibilities.append(l)
-                l = [pawn[0] - 1, pawn[1] - i]
-                black_h_pawn_possibilities.append(l)
+                list1 = [pawn[0], pawn[1] - i]
+                black_h_pawn_possibilities.append(list1)
+                list1 = [pawn[0] + 1, pawn[1] - i]
+                black_h_pawn_possibilities.append(list1)
+                list1 = [pawn[0] - 1, pawn[1] - i]
+                black_h_pawn_possibilities.append(list1)
                 if a == 2:
-                    l = [pawn[0], pawn[1] - 2]
-                    black_h_pawn_possibilities.append(l)
+                    list1 = [pawn[0], pawn[1] - 2]
+                    black_h_pawn_possibilities.append(list1)
             final_black_h_pawn_possibilities = []
             for i in square_name_of_chessboard:
-                if i in pawn_possibilities:
+                if i in black_h_pawn_possibilities:
                     final_black_h_pawn_possibilities.append(i)
         if which_piece == "black_l_bishop":
-            bishop = black_pieces_position["black_l_bishop"]
-            bishop_possibilities = []
+            bishop = black_piece_setup_dictionary["black_l_bishop"]
+            black_l_bishop_possibilities = []
             for i in range(1, 8):
                 l1 = [bishop[0] + i, bishop[1] + i]
-                bishop_possibilities.append(l1)
-                l = [bishop[0] - i, bishop[1] - i]
-                bishop_possibilities.append(l)
+                black_l_bishop_possibilities.append(l1)
+                list1 = [bishop[0] - i, bishop[1] - i]
+                black_l_bishop_possibilities.append(list1)
                 l1 = [bishop[0] + i, bishop[1] - i]
-                bishop_possibilities.append(l1)
-                l = [bishop[0] - i, bishop[1] + i]
-                bishop_possibilities.append(l)
-            final_bishop_possibilities = []
+                black_l_bishop_possibilities.append(l1)
+                list1 = [bishop[0] - i, bishop[1] + i]
+                black_l_bishop_possibilities.append(list1)
+            final_black_l_bishop_possibilities = []
             for i in square_name_of_chessboard:
-                if i in bishop_possibilities:
-                    final_bishop_possibilities.append(i)
+                if i in black_l_bishop_possibilities:
+                    final_black_l_bishop_possibilities.append(i)
         if which_piece == "black_r_bishop":
-            bishop = black_pieces_position["black_r_bishop"]
-            bishop_possibilities = []
+            bishop = black_piece_setup_dictionary["black_r_bishop"]
+            black_r_bishop_possibilities = []
             for i in range(1, 8):
                 l1 = [bishop[0] + i, bishop[1] + i]
-                bishop_possibilities.append(l1)
-                l = [bishop[0] - i, bishop[1] - i]
-                bishop_possibilities.append(l)
+                black_r_bishop_possibilities.append(l1)
+                list1 = [bishop[0] - i, bishop[1] - i]
+                black_r_bishop_possibilities.append(list1)
                 l1 = [bishop[0] + i, bishop[1] - i]
-                bishop_possibilities.append(l1)
-                l = [bishop[0] - i, bishop[1] + i]
-                bishop_possibilities.append(l)
-            final_bishop_possibilities = []
+                black_r_bishop_possibilities.append(l1)
+                list1 = [bishop[0] - i, bishop[1] + i]
+                black_r_bishop_possibilities.append(list1)
+            final_black_r_bishop_possibilities = []
             for i in square_name_of_chessboard:
-                if i in bishop_possibilities:
-                    final_bishop_possibilities.append(i)
+                if i in black_r_bishop_possibilities:
+                    final_black_r_bishop_possibilities.append(i)
         if which_piece == "black_l_knight":
-            knight = black_pieces_position["black_l_knight"]
-            knight_possibilities = []
+            knight = black_piece_setup_dictionary["black_l_knight"]
+            black_l_knight_possibilities = []
             for i in range(1, 2):
-                l = [knight[0] + 2, knight[1] + i]
-                knight_possibilities.append(l)
+                list1 = [knight[0] + 2, knight[1] + i]
+                black_l_knight_possibilities.append(list1)
                 l1 = [knight[0] - 2, knight[1] - i]
-                knight_possibilities.append(l1)
-                l = [knight[0] + i, knight[1] + 2]
-                knight_possibilities.append(l)
+                black_l_knight_possibilities.append(l1)
+                list1 = [knight[0] + i, knight[1] + 2]
+                black_l_knight_possibilities.append(list1)
                 l1 = [knight[0] - i, knight[1] - 2]
-                knight_possibilities.append(l1)
-                l = [knight[0] + 2, knight[1] - i]
-                knight_possibilities.append(l)
+                black_l_knight_possibilities.append(l1)
+                list1 = [knight[0] + 2, knight[1] - i]
+                black_l_knight_possibilities.append(list1)
                 l1 = [knight[0] - 2, knight[1] + i]
-                knight_possibilities.append(l1)
-                l = [knight[0] - i, knight[1] + 2]
-                knight_possibilities.append(l)
+                black_l_knight_possibilities.append(l1)
+                list1 = [knight[0] - i, knight[1] + 2]
+                black_l_knight_possibilities.append(list1)
                 l1 = [knight[0] + i, knight[1] - 2]
-                knight_possibilities.append(l1)
-            final_knight_possibilities = []
+                black_l_knight_possibilities.append(l1)
+            final_black_l_knight_possibilities = []
             for i in square_name_of_chessboard:
-                if i in knight_possibilities:
-                    final_knight_possibilities.append(i)
+                if i in black_l_knight_possibilities:
+                    final_black_l_knight_possibilities.append(i)
         if which_piece == "black_r_knight":
-            knight = black_pieces_position["black_r_knight"]
-            knight_possibilities = []
+            knight = black_piece_setup_dictionary["black_r_knight"]
+            black_r_knight_possibilities = []
             for i in range(1, 2):
-                l = [knight[0] + 2, knight[1] + i]
-                knight_possibilities.append(l)
+                list1 = [knight[0] + 2, knight[1] + i]
+                black_r_knight_possibilities.append(list1)
                 l1 = [knight[0] - 2, knight[1] - i]
-                knight_possibilities.append(l1)
-                l = [knight[0] + i, knight[1] + 2]
-                knight_possibilities.append(l)
+                black_r_knight_possibilities.append(l1)
+                list1 = [knight[0] + i, knight[1] + 2]
+                black_r_knight_possibilities.append(list1)
                 l1 = [knight[0] - i, knight[1] - 2]
-                knight_possibilities.append(l1)
-                l = [knight[0] + 2, knight[1] - i]
-                knight_possibilities.append(l)
+                black_r_knight_possibilities.append(l1)
+                list1 = [knight[0] + 2, knight[1] - i]
+                black_r_knight_possibilities.append(list1)
                 l1 = [knight[0] - 2, knight[1] + i]
-                knight_possibilities.append(l1)
-                l = [knight[0] - i, knight[1] + 2]
-                knight_possibilities.append(l)
+                black_r_knight_possibilities.append(l1)
+                list1 = [knight[0] - i, knight[1] + 2]
+                black_r_knight_possibilities.append(list1)
                 l1 = [knight[0] + i, knight[1] - 2]
-                knight_possibilities.append(l1)
-            final_knight_possibilities = []
+                black_r_knight_possibilities.append(l1)
+            final_black_r_knight_possibilities = []
             for i in square_name_of_chessboard:
-                if i in knight_possibilities:
-                    final_knight_possibilities.append(i)
+                if i in black_r_knight_possibilities:
+                    final_black_r_knight_possibilities.append(i)
         if which_piece == "black_l_rook":
-            rook = black_pieces_position["black_l_rook"]
-            rook_possibilities = []
+            rook = black_piece_setup_dictionary["black_l_rook"]
+            black_l_rook_possibilities = []
             for i in range(1, 8):
-                l = [rook[0], rook[1] + i]
-                rook_possibilities.append(l)
+                list1 = [rook[0], rook[1] + i]
+                black_l_rook_possibilities.append(list1)
                 l1 = [rook[0] + i, rook[1]]
-                rook_possibilities.append(l1)
-                l = [rook[0], rook[1] - i]
-                rook_possibilities.append(l)
+                black_l_rook_possibilities.append(l1)
+                list1 = [rook[0], rook[1] - i]
+                black_l_rook_possibilities.append(list1)
                 l1 = [rook[0] - i, rook[1]]
-                rook_possibilities.append(l1)
-            final_rook_possibilities = []
+                black_l_rook_possibilities.append(l1)
+            final_black_l_rook_possibilities = []
             for i in square_name_of_chessboard:
-                if i in rook_possibilities:
-                    final_rook_possibilities.append(i)
+                if i in black_l_rook_possibilities:
+                    final_black_l_rook_possibilities.append(i)
         if which_piece == "black_r_rook":
-            rook = black_pieces_position["black_r_rook"]
-            rook_possibilities = []
+            rook = black_piece_setup_dictionary["black_r_rook"]
+            black_r_rook_possibilities = []
             for i in range(1, 8):
-                l = [rook[0], rook[1] + i]
-                rook_possibilities.append(l)
+                list1 = [rook[0], rook[1] + i]
+                black_r_rook_possibilities.append(list1)
                 l1 = [rook[0] + i, rook[1]]
-                rook_possibilities.append(l1)
-                l = [rook[0], rook[1] - i]
-                rook_possibilities.append(l)
+                black_r_rook_possibilities.append(l1)
+                list1 = [rook[0], rook[1] - i]
+                black_r_rook_possibilities.append(list1)
                 l1 = [rook[0] - i, rook[1]]
-                rook_possibilities.append(l1)
-            final_rook_possibilities = []
+                black_r_rook_possibilities.append(l1)
+            final_black_r_rook_possibilities = []
             for i in square_name_of_chessboard:
-                if i in rook_possibilities:
-                    final_rook_possibilities.append(i)
+                if i in black_r_rook_possibilities:
+                    final_black_r_rook_possibilities.append(i)
         if which_piece == "black_queen":
-            queen = black_pieces_position["black_queen"]
-            queen_possibilities = []
+            queen = black_piece_setup_dictionary["black_queen"]
+            black_queen_possibilities = []
             for i in range(1, 8):
-                l = [queen[0], queen[1] + i]
-                queen_possibilities.append(l)
+                list1 = [queen[0], queen[1] + i]
+                black_queen_possibilities.append(list1)
                 l1 = [queen[0] + i, queen[1]]
-                queen_possibilities.append(l1)
-                l = [queen[0], queen[1] - i]
-                queen_possibilities.append(l)
+                black_queen_possibilities.append(l1)
+                list1 = [queen[0], queen[1] - i]
+                black_queen_possibilities.append(list1)
                 l1 = [queen[0] - i, queen[1]]
-                queen_possibilities.append(l1)
+                black_queen_possibilities.append(l1)
                 l1 = [queen[0] + i, queen[1] + i]
-                queen_possibilities.append(l1)
-                l = [queen[0] - i, queen[1] - i]
-                queen_possibilities.append(l)
+                black_queen_possibilities.append(l1)
+                list1 = [queen[0] - i, queen[1] - i]
+                black_queen_possibilities.append(list1)
                 l1 = [queen[0] + i, queen[1] - i]
-                queen_possibilities.append(l1)
-                l = [queen[0] - i, queen[1] + i]
-                queen_possibilities.append(l)
-            final_queen_possibilities = []
+                black_queen_possibilities.append(l1)
+                list1 = [queen[0] - i, queen[1] + i]
+                black_queen_possibilities.append(list1)
+            final_black_queen_possibilities = []
             for i in square_name_of_chessboard:
-                if i in queen_possibilities:
-                    final_queen_possibilities.append(i)
+                if i in black_queen_possibilities:
+                    final_black_queen_possibilities.append(i)
         if which_piece == "black_king":
-            king = black_pieces_position["black_king"]
-            king_possibilities = []
+            king = black_piece_setup_dictionary["black_king"]
+            black_king_possibilities = []
             for i in range(1, 2):
-                l = [king[0], king[1] + i]
-                king_possibilities.append(l)
-                l1 = [king[0] + i, king[1]]
-                king_possibilities.append(l1)
-                l = [king[0], king[1] - i]
-                king_possibilities.append(l)
-                l1 = [king[0] - i, king[1]]
-                king_possibilities.append(l1)
-                l1 = [king[0] + i, king[1] + i]
-                king_possibilities.append(l1)
-                l = [king[0] - i, king[1] - i]
-                king_possibilities.append(l)
-                l1 = [king[0] + i, king[1] - i]
-                king_possibilities.append(l1)
-                l = [king[0] - i, king[1] + i]
-                king_possibilities.append(l)
-        print("from", black_pieces_position[which_piece], "to:")
+                list1 = [king[0], king[1] + i]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] + i, king[1]]
+                black_king_possibilities.append(list1)
+                list1 = [king[0], king[1] - i]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] - i, king[1]]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] + i, king[1] + i]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] - i, king[1] - i]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] + i, king[1] - i]
+                black_king_possibilities.append(list1)
+                list1 = [king[0] - i, king[1] + i]
+                black_king_possibilities.append(list1)
+                final_black_king_possibilities = []
+                for i in square_name_of_chessboard:
+                    if i in black_king_possibilities:
+                        final_black_king_possibilities.append(i)
+        print("from", black_piece_setup_dictionary[which_piece], "to:")
         black_move = []
         for i in range(2):
             if i == 0:
@@ -740,9 +741,7 @@ while a % 2 == 1:
             if i == 1:
                 which_move = int(input("where do you want to move your " + which_piece + " (enter the rank):"))
                 black_move.append(which_move)
-        black_pieces_position[which_piece] = black_move
-        coordinate_of_white_piece_position = list(black_pieces_position.values())
-        coordinate_of_black_piece_position = list(black_pieces_position.values())
+        black_piece_setup_dictionary[which_piece] = black_move
         possibility = "not possible"
         if which_piece == "black_a_pawn":
             if black_move in final_black_a_pawn_possibilities:
@@ -769,54 +768,54 @@ while a % 2 == 1:
             if black_move in final_black_h_pawn_possibilities:
                 possibility = "possible"
         if which_piece == "black_l_bishop":
-            if black_move in final_bishop_possibilities:
+            if black_move in final_black_l_bishop_possibilities:
                 possibility = "possible"
         if which_piece == "black_r_bishop":
-            if black_move in final_bishop_possibilities:
+            if black_move in final_black_r_bishop_possibilities:
                 possibility = "possible"
         if which_piece == "black_l_knight":
-            if black_move in final_knight_possibilities:
+            if black_move in final_black_l_knight_possibilities:
                 possibility = "possible"
         if which_piece == "black_r_knight":
-            if black_move in final_knight_possibilities:
+            if black_move in final_black_r_knight_possibilities:
                 possibility = "possible"
         if which_piece == "black_l_rook":
-            if black_move in final_rook_possibilities:
+            if black_move in final_black_l_rook_possibilities:
                 possibility = "possible"
         if which_piece == "black_r_rook":
-            if black_move in final_rook_possibilities:
+            if black_move in final_black_r_rook_possibilities:
                 possibility = "possible"
         if which_piece == "black_queen":
-            if black_move in final_queen_possibilities:
+            if black_move in final_black_queen_possibilities:
                 possibility = "possible"
         if which_piece == "black_king":
-            if black_move in king_possibilities:
+            if black_move in final_black_king_possibilities:
                 possibility = "possible"
         conclusion = " "
-        for i in range(len(coordinate_of_black_piece_position)):
-            for j in range(len(coordinate_of_white_piece_position)):
-                if list(coordinate_of_black_piece_position[i]) == list(coordinate_of_white_piece_position[j]):
+        for i in black_piece_setup_dictionary:
+            for j in white_piece_setup_dictionary:
+                if black_piece_setup_dictionary[i] == white_piece_setup_dictionary[j]:
                     conclusion = "position is not possible"
                 if conclusion == "position is not possible":
                     break
                 else:
                     conclusion = "position is possible"
-        if possibility == "not possible":
-            print("illegal position")
         if possibility == "possible":
             if conclusion == "position is possible":
-                print("move registered")
+                print("moved;", which_piece, "to", black_move)
             if conclusion == "position is not possible":
-                print("moved", which_piece, "to", black_move)
+                print("captured;", which_piece, "to", black_move)
+        if possibility == "not possible":
+            print("illegal position")
         to_be_deleted = []
-        for piece in white_pieces_position:
-            if not white_pieces_position[piece] == black_move:
+        for piece in white_piece_setup_dictionary:
+            if not white_piece_setup_dictionary[piece] == black_move:
                 pass
-            if white_pieces_position[piece] == black_move:
+            if white_piece_setup_dictionary[piece] == black_move:
                 to_be_deleted.append(piece)
-                white_pieces_position.pop(to_be_deleted[0])
-        a = a + 1
-        if not "white_king" in white_pieces_position:
+                white_piece_setup_dictionary.pop(to_be_deleted[0])
+        if not "white_king" in white_piece_setup_dictionary:
             print("checkmate, black wins")
         else:
             pass
+        a = a + 1
