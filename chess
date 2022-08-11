@@ -11,7 +11,7 @@ rev_square_name_of_chessboard = (list(reversed(square_name_of_chessboard)))
 print("")
 print("")
 print("                                                           black side                                                          ")
-print("                               _________________________________________________________________")
+print("                               __________________________________________________________________")
 for i in range(7, -1, -1):
     print("                              |", rev_square_name_of_chessboard[-(8 * i + 1):-(8 * (i+1) + 1):-1], "|")
     print("                              |------------------------------------------------------------------|")
@@ -46,7 +46,7 @@ black_piece_setup_dictionary = {"black_a_pawn": square_name_of_chessboard[48],
                                 "black_l_bishop": square_name_of_chessboard[58],
                                 "black_r_bishop": square_name_of_chessboard[61],
                                 "black_l_knight": square_name_of_chessboard[57],
-                                "black_r_knight": square_name_of_chessboard[58],
+                                "black_r_knight": square_name_of_chessboard[62],
                                 "black_l_rook": square_name_of_chessboard[56],
                                 "black_r_rook": square_name_of_chessboard[63],
                                 "black_queen": square_name_of_chessboard[59],
