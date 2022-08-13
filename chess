@@ -1,26 +1,37 @@
 # chess board co-ordinate
 # chess_board
-import time
-initial = time.time()
-print("L O A D I N G",end = "")
-for i in range(5):
-    print(">",end = "")
-    time.sleep(1)
+st = ["L", "O", "A", "D", "I", "N", "G"]
+for i in range(int(len(st))):
+    import time
+    initial = time.time()
+    print(st[i], end="")
+    for i in range(1):
+        time.sleep(0.5)
 print("")
 print("                                                    ", "THIS IS YOUR CHESSBOARD")
 square_name_of_chessboard = []
+
 for i in range(1, 9):
     for j in range(1, 9):
         c1 = [j, i]
         square_name_of_chessboard.append(c1)
 rev_square_name_of_chessboard = (list(reversed(square_name_of_chessboard)))
 print("")
-print("")
 print("                                                           black side                                                          ")
-print("                               __________________________________________________________________")
+print("                              *", "* " * 33)
 for i in range(7, -1, -1):
-    print("                              |", rev_square_name_of_chessboard[-(8 * i + 1):-(8 * (i+1) + 1):-1], "|")
-    print("                              |------------------------------------------------------------------|")
+    print("                              *", rev_square_name_of_chessboard[-(8 * i + 1):-(8 * (i+1) + 1):-1], "*")
+    import time
+    initial = time.time()
+    for j in range(1):
+        time.sleep(0.08)
+        if not i == 0:
+            print("                              *", " "*64, "*")
+    if i == 0:
+        print("                               *", "* " * 33)
+
+
+
 print("                                                           white side                                                          ")
 # whites starting position
 white_piece_setup_dictionary = {"white_a_pawn": square_name_of_chessboard[8],
@@ -57,6 +68,7 @@ black_piece_setup_dictionary = {"black_a_pawn": square_name_of_chessboard[48],
                                 "black_r_rook": square_name_of_chessboard[63],
                                 "black_queen": square_name_of_chessboard[59],
                                 "black_king": square_name_of_chessboard[60]}
+
 # a code which takes your move as input and checks it is possible or not
 # player_move
 a = 1
@@ -823,4 +835,3 @@ while a % 2 == 1:
         else:
             pass
         a = a + 1
-
